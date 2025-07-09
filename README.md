@@ -2,7 +2,7 @@
 
 ## Contexto
 
-O desafio consiste na construção de uma aplicação web para simular um processo de pedidos em um ecommerce simplificado. O objetivo é avaliar sua capacidade técnica, decisões arquiteturais e domínio das ferramentas modernas do ecossistema .NET e Angular. O prazo para a entrega é até **dia 15/06/2025**.
+O desafio consiste na construção de uma aplicação web para simular um processo de pedidos em um ecommerce simplificado. O objetivo é avaliar sua capacidade técnica, decisões arquiteturais e domínio das ferramentas modernas do ecossistema .NET e Angular. O prazo para a entrega é até **dia 20/07/2025**.
 
 A entrega será feita via **Pull Request** sobre um **fork** deste repositório.
 
