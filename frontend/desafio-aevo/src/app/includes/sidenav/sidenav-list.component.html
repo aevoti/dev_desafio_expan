@@ -1,0 +1,6 @@
+<mat-nav-list>
+  <a mat-list-item *ngFor="let route of routeLinks" [routerLink]="route.link" routerLinkActive="active-link"
+    class="nav-link" (click)="navigate(route.link)">
+    <span matLine>{{ route.name }}</span>
+  </a>
+</mat-nav-list>

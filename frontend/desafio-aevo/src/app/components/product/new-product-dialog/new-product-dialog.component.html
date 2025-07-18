@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Adicionar novo produto</h2>
+
+<div mat-dialog-content>
+  <form [formGroup]="productForm" (ngSubmit)="createProduct()">
+    <mat-form-field appearance="outline" style="width: 100%;--mat-sys-primary: #ff9800">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="Name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="input-color" style="width: 100%; --mat-sys-primary: #ff9800">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" formControlName="Price" mask="separator.2" thousandSeparator="." decimalMarker="," suffix=""
+        prefix="" />
+      <mat-error *ngIf="productForm.get('Price')?.touched && productForm.get('Price')?.invalid">
+        O preço é obrigatório e deve ser um número válido.
+      </mat-error>
+    </mat-form-field>
+
+    <div class="form-flex-buttons" style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px;">
+      <button mat-raised-button class="btn-orange" type="button" (click)="dialogRef.close()">Cancelar</button>
+      <button mat-raised-button class="btn-orange" color="primary" type="submit"
+        [disabled]="productForm.invalid || isLoading">Criar</button>
+    </div>
+  </form>
+
+  <div class="mat-spinner-container-center" *ngIf="isLoading" style="margin-top: 16px;">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+</div>

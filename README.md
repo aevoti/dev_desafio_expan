@@ -1,88 +1,187 @@
-# Desafio Técnico: Desenvolvedor (.NET C# + Angular)
+# Desafio AEVO - E-commerce (Angular + .NET + RabbitMQ)
 
-## Contexto
+Este projeto foi desenvolvido como parte do desafio técnico da AEVO.
+O objetivo é criar uma aplicação de e-commerce com **.NET 8 (C#)** no backend, **Angular 17** no frontend e **RabbitMQ + MassTransit** para processamento assíncrono dos pedidos.
 
-O desafio consiste na construção de uma aplicação web para simular um processo de pedidos em um ecommerce simplificado. O objetivo é avaliar sua capacidade técnica, decisões arquiteturais e domínio das ferramentas modernas do ecossistema .NET e Angular. O prazo para a entrega é até **dia 20/07/2025**.
+---
 
-A entrega será feita via **Pull Request** sobre um **fork** deste repositório.
-
-## Descrição Geral
-
-O sistema simula um e-commerce com:
-
-- Listagem de produtos (pré-cadastrados no banco)
-- Criação de pedidos (compra de um ou mais produtos)
-- Processamento assíncrono dos pedidos via fila com MassTransit
-- Tela de acompanhamento do status dos pedidos
-
-## Funcionalidades e Requisitos Técnicos
-
-### Backend (C# com .Net Framework 4.x ou .NET 6+)
-
-- Web API e Consumer construída com C# e ASP.NET
-- Produtos devem ser pré-cadastrados no banco, não é necessário implementar CRUD completo
-- Criação de pedidos pela API (usuário envia um ou mais itens de produto, quantidade, etc.)
-- Uso de **MassTransit** com mensageria (RabbitMQ) para simular o processamento dos pedidos
-- Processamento assíncrono: ao receber o pedido, ele deve ser enfileirado e processado por um consumer
-- Durante o processamento, o status do pedido deve evoluir em etapas: `Recebido` -> `Em Processamento` -> `Concluído` ou `Falhou`. O status `Falhou` pode ser usado para simular uma falha no processamento do pedido, permitindo testar mecanismos como retry ou circuit breaker.
-- Persistência de pedidos e produtos em banco de dados (SQL Server ou Postgres)
-
-### Frontend (Angular 13+)
-
-- Tela para listar produtos disponíveis (chamada à API)
-- Tela para criar pedido selecionando produto(s) e quantidade(s)
-- Tela para listar pedidos realizados e acompanhar o status em tempo real ou por refresh manual (polling)
-- Gerenciamento básico de estado (com ou sem biblioteca externa, como NGXS ou NgRx) será um diferencial
-- Boas práticas de estrutura de componentes e organização de módulos
-
-### Simulação do Processamento Assíncrono
-
-- Após o pedido ser enfileirado, o consumer deve simular o processamento em etapas:
-  - Esperar 30 segundos -> atualizar status para `Em Processamento`
-  - Esperar mais 90 segundos -> com base em uma chance aleatória de 50%, atualizar status para `Concluído` ou `Falhou`
-- As atualizações devem ser persistidas no banco para que possam ser consultadas na tela de pedidos
-
-### Observações Técnicas
-
-- **Não é necessário login/autenticação**
-- **É necessário que, caso ocorra uma falha (`Falhou`) durante o processamento, a mensagem seja reenviada automaticamente para a fila para reprocessamento (mecanismo de retry) após 60 segundos**. A mensagem pode falhar no máximo 3 vezes consecutivas. Após a terceira falha, o pedido deve ser considerado com status final `Falhou`, sem novas tentativas.
-- Pode usar quaisquer bibliotecas/frameworks auxiliares para facilitar o desenvolvimento, tanto no back como no front, mas se fizer seus próprios componentes do Angular será um diferencial
-- Documentação da API com Swagger não é obrigatória, mas será um diferencial também
-
-## Testes Automatizados
+## 🚀 Tecnologias Utilizadas
 
 ### Backend
-
-- É obrigatório incluir testes automatizados no backend (.NET), com foco em testes de unidade e/ou testes de integração.
+- .NET 8 + ASP.NET Core Web API
+- Entity Framework Core
+- FluentMigrator (migrações)
+- FluentValidation (validações)
+- FluentAssertions (testes)
+- MassTransit + RabbitMQ (mensageria)
+- DDD (Domain Driven Design)
+- Xunit + Bogus (testes)
+- Dapper (lib auxiliar em testes)
 
 ### Frontend
+- Angular 17
+- Angular Material
+- RxJS
 
-- Não é obrigatório incluir testes automatizados no frontend (Angular), mas a presença de testes de unidade (Jest preferencialmente) ou testes de componentes/e2e (Cypress preferencialmente) será considerada um diferencial positivo.
+### Infraestrutura
+- Docker + Docker Compose (API, RabbitMQ, SQL Server)
+- SQL Server
 
-## Critérios de Avaliação
+---
 
-- **Organização do código**: clareza, separação de responsabilidades, arquitetura
-- **Funcionalidade**: sistema funcionando de ponta a ponta, sem bugs e vulnerabilidades
-- **Qualidade do frontend**: UX básica, componentização, integração com backend
-- **Documentação**: README, com no mínimo, instruções claras de como subir o projeto (backend e frontend)
-- **Uso de boas práticas**: tanto em Angular quanto em .NET
+## 📂 Estrutura do Projeto
 
-## Extra - Ambiente de Execução com Docker
+DesafioAEVO/
+│
+├── docker-compose.yml
+├── Dockerfile
+│
+├── API/
+│ ├── Controllers/
+│ ├── Extensions/
+│ ├── Program.cs
+│ └── ...
+│
+├── Application/
+│ ├── UseCases/
+│ ├── Validators/
+│ ├── AutoMapper/
+│
+├── Domain/
+│ ├── Entities/
+│ ├── Repositories/
+│
+├── Infrastructure/
+│ ├── Data/
+│ ├── Messaging/
+│
+├── shared/
+│ ├── DesafioAEVO.Communication/
+│ └── DesafioAEVO.Exceptions/
+│
+├── frontend/
+│ ├── components/
+│ ├── includes/
+│ ├── interfaces/
+│ ├── services/
+│ ├── models/
+│ └── material/
+│
+└── tests/
+├── CommonTestUtilities/
+├── UseCases.Test/
+└── Validators.Test/
 
-Recomenda-se a inclusão de um `docker-compose.yml` para facilitar a execução local da aplicação. O compose deve contemplar:
+---
 
-- Web API e Consumer
-- RabbitMQ (para mensageria com MassTransit)
-- Banco de dados (SQL Server/PostgreSQL)
+## ✅ Funcionalidades Implementadas
+- **Produtos**
+  - Cadastro de produtos via API
+  - Listagem paginada no frontend com Angular Material Table
+  - Seleção de múltiplos produtos e simulação de compra
+  - Testes de cadastros
 
-O `README.md` deve conter instruções de como subir todos os serviços com `docker-compose up`, incluindo as portas expostas e qualquer configuração necessária para testes locais.
+- **Pedidos**
+  - Criação de pedidos enviando itens selecionados
+  - Processamento assíncrono via RabbitMQ + MassTransit
+  - Atualização do status do pedido (Recebido → Em Processamento → Concluído / Falhou)
+  - Tela de pedidos com auto-refresh a cada 30s
+  - Testes de cadastros e de fila
 
-## Instruções de Entrega
+  ---
 
-1. Faça um fork deste repositório
-2. Desenvolva sua solução nesse fork
-3. Ao finalizar, crie um Pull Request para o repositório original
-4. Garanta que todas as instruções de execução estejam descritas no `README.md`
-5. Mesmo que não consiga ou não dê tempo de fazer tudo que está descrito no desafio, recomendamos que faça a pull request mesmo assim
+  ### ✅ 1. Backend (.NET API)
 
-Boa sorte!
+  ## Como Rodar o Projeto
+- cd src/DesafioAEVO.API
+- dotnet restore
+- dotnet build
+- dotnet run
+- Lembrar de startar o RabbitMq se rodar a api sem ser pelo Docker.
+
+Ao executar, será feita a migração do banco com dados iniciais (DatabaseMigration + DataSeeder).
+
+Swagger disponível em:
+➡ http://localhost:7090/swagger
+  
+  ### ✅ 2. RabbitMQ via Docker
+
+- **Docker Desktop** instalado e rodando (https://www.docker.com/products/docker-desktop)    
+- Internet para baixar imagens Docker na primeira execução  
+
+  ## Subir containers API, RabbitMQ e SQL Server
+-  docker compose up --build -d
+  ## Para ver os containers em execução
+- docker ps
+
+  ## RabbitMQ Management UI
+- http://localhost:15672/#/
+  **(user: guest | pass: guest)**
+
+  Com o Docker, as credenciais do banco padrão são:
+- **Server name**: localhost,1433
+- **Authentication**: SQL Server Authentication
+- **User**: sa
+- **Password**: SQLServer@2025
+- **Database**: DesafioAEVO
+
+  ## Para remover os containers se precisar
+- docker compose down -v
+
+  ### ✅ 3. Frontend (Angular)
+- Instale as dependências
+- npm install
+- npm install -g @angular/cli
+- npm install @angular/material@latest
+- npm install -D sass@latest
+- npm install ngx-mask --save
+- ng serve
+
+### Configuração do Banco de Dados
+A API utiliza **SQL Server**. No `appsettings.json`, atualize a `ConnectionStrings:ConnectionSQLServer` com os dados do seu ambiente.
+
+Exemplo:
+"ConnectionStrings": {
+  "DefaultConnection": "Data Source=VARGASPC; Initial Catalog=desafioAEVO; User ID=sa; Password=********;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True"
+}
+
+## Uri Front http://localhost:4200
+## Uri Back https://localhost:7090 | http://localhost:5284
+
+No front instanciei as urls dos serviçoes para a porta 5284, para não dar erros de permissões e de certificados no Docker.
+
+---
+
+## Endpoints
+- GET /products → Lista todos os produtos
+- POST /products → Cria um novo produto
+- POST /orders/create → Cria um novo pedido (enfileira no RabbitMQ)
+- GET /orders → Lista todos os pedidos com seus itens
+
+## Processamento Assíncrono
+- O pedido é salvo no banco e publicado no RabbitMQ
+- Um consumer (MassTransit) processa a mensagem e atualiza o status do pedido
+- Status possíveis:
+- Recebido
+- Em Processamento
+- Concluído
+- Falhou
+
+## Como Simular a Mensageria
+- Verifique se o RabbitMq está instalado e executando na sua maquina.
+- Crie um pedido pelo Frontend ou pelo Swagger.
+- Acompanhe a fila no RabbitMQ Management UI (order-created-queue)
+- Veja o status mudar na tela de pedidos após alguns segundos, e consulte no banco de dados os dados sendo alterados.
+
+## Telas
+![Tela de Produtos](docs/images/HomeDesafioAEVO.png)
+![Tela de Produtos](docs/images/ProductsDesafioAEVO.png)
+![Tela de Produtos](docs/images/OrdersDesafioAEVO.png)
+![Tela de Produtos](docs/images/SideDesafioAEVO.png)
+
+## Observações
+- Projeto segue os princípios do DDD
+- Implementa boas práticas de Clean Code
+- Código modular e extensível para futuras melhorias
+
+Feito com ❤️ para o desafio técnico da AEVO, espero que gostem :).

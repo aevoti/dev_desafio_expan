@@ -1,0 +1,77 @@
+<div class="products-root">
+  
+  <header class="products-header">
+    <h1 class="products-title">Produtos</h1>
+
+    <mat-form-field appearance="outline" class="products-filter">
+      <mat-label>Filtro</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input />
+    </mat-form-field>
+  </header>
+
+  <section class="products-table-card">
+    <div class="table-scroll-wrapper">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
+          <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Preço unitário</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.price | currency:'BRL':'symbol':'1.2-2' }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>Comprar</th>
+          <td mat-cell *matCellDef="let row">
+            <div class="qty-controls">
+              <button mat-icon-button class="qty-btn" (click)="decreaseQuantity(row.id)">
+                <mat-icon>remove</mat-icon>
+              </button>
+              <span class="qty-value">{{ quantities[row.id] || 0 }}</span>
+              <button mat-icon-button class="qty-btn" (click)="increaseQuantity(row.id)">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="3">Nenhum dado encontrado para o filtro.</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="loading-overlay" *ngIf="isLoading">
+      <mat-spinner [diameter]="40"></mat-spinner>
+    </div>
+  </section>
+
+  <div class="products-actions">
+    <button mat-raised-button class="btn-orange" (click)="openCreateProductDialog()">
+      <mat-icon>add</mat-icon>
+      Adicionar Produto
+    </button>
+
+    <button
+      *ngIf="hasAnyQuantity"
+      mat-raised-button
+      class="btn-orange"
+      (click)="buySelected()"
+    >
+      <mat-icon>shopping_cart</mat-icon>
+      Comprar {{ totalQuantity }} item{{ totalQuantity > 1 ? 's' : '' }}
+    </button>
+  </div>
+
+  <div class="products-paginator">
+    <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

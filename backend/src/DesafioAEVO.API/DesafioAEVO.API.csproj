@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>65855446-7090-4103-9f6f-9b5c3f7df55c</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DesafioAEVO.Application\DesafioAEVO.Application.csproj" />
+    <ProjectReference Include="..\DesafioAEVO.Infrastructure\DesafioAEVO.Infrastructure.csproj" />
+    <ProjectReference Include="..\shared\DesafioAEVO.Communication\DesafioAEVO.Communication.csproj" />
+    <ProjectReference Include="..\shared\DesafioAEVO.Exceptions\DesafioAEVO.Exceptions.csproj" />
+  </ItemGroup>
+
+</Project>
