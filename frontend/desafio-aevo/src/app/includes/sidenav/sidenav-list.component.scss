@@ -1,0 +1,11 @@
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 153, 0, 0.068);
+  overflow: hidden !important;
+
+  span[matLine] {
+    font-size: 16px;;
+  }
+}

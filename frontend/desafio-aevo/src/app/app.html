@@ -1,0 +1,19 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav mode="push" #sidenav position="start" role="navigation">
+    <app-sidenav [sidenav]="sidenav"></app-sidenav>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" role="heading">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <span class="toolbar-spacer"></span>
+    </mat-toolbar>
+
+    <main class="router-container">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

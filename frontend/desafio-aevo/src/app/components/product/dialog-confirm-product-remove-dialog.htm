@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Warning</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Are you sure you want to remove this product?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-flat-button mat-dialog-close>No, keep data</button>
+  <button mat-flat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Remove</button>
+</mat-dialog-actions>

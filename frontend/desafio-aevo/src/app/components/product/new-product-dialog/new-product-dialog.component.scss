@@ -1,0 +1,13 @@
+dialog-new-product {
+    input-color {
+        width: 100%;
+        --mat-sys-primary: #ff9800 !important;
+    }
+
+    .error-snackbar {
+        background-color: #c23f1e !important;
+        color: #fff !important;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
