@@ -1,0 +1,56 @@
+<div class="home-root">
+  <section class="home-hero">
+    <div class="hero-text">
+      <h1>Bem-vindo ao meu desafio AEVO</h1>
+      <p>Compre produtos e acompanhe pedidos em tempo real.</p>
+
+      <div class="hero-ctas">
+        <button mat-raised-button class="btn-orange" routerLink="/products">
+          <mat-icon>shopping_bag</mat-icon>
+          Ver Produtos
+        </button>
+        <button mat-stroked-button class="btn-orange-outline" routerLink="/orders">
+          <mat-icon>list_alt</mat-icon>
+          Ver Pedidos
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-graphic" aria-hidden="true">
+      <mat-icon class="hero-icon">storefront</mat-icon>
+    </div>
+  </section>
+
+  <section class="home-actions-grid">
+    <mat-card class="home-action-card action-products" routerLink="/products" tabindex="0" role="link">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>shopping_bag</mat-icon>
+        <mat-card-title>Produtos</mat-card-title>
+        <mat-card-subtitle>Gerencie catálogo e estoque</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Adicionar, listar e comprar produtos disponíveis.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary">Ir para Produtos</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="home-action-card action-orders" routerLink="/orders" tabindex="0" role="link">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>list_alt</mat-icon>
+        <mat-card-title>Pedidos</mat-card-title>
+        <mat-card-subtitle>Acompanhe o status</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Veja pedidos recebidos, em processamento, concluídos e também os que falharam.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary">Ir para Pedidos</button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+</div>
+<footer class="home-footer">
+  <p>Feito com ❤️ por <strong>Guilherme Vargas</strong></p>
+</footer>

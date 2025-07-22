@@ -1,0 +1,49 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: desafioaevo-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: desafioaevo-sqlserver
+    environment:
+      SA_PASSWORD: "SQLServer@2025"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+  api:
+    container_name: desafioaevo-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5284:5284"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      sqlserver:
+        condition: service_started
+    environment:
+      ASPNETCORE_URLS: http://+:5284
+      DOTNET_RUNNING_IN_CONTAINER: "true"
+      ConnectionStrings__ConnectionSQLServer: "Server=sqlserver,1433;Database=desafioAEVO;User Id=sa;Password=SQLServer@2025;Encrypt=False;TrustServerCertificate=True;"
+      RabbitMQ__Host: rabbitmq
+      RabbitMQ__Username: guest
+      RabbitMQ__Password: guest
+
+volumes:
+  sql_data:

@@ -1,0 +1,119 @@
+app-product-list {
+  $orange: #ff9800;
+
+  .products-root {
+    width: 100%;
+    min-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 10px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .products-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .products-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $orange;
+  }
+
+  .products-filter {
+    width: 100%;
+    --mdc-outlined-text-field-focus-outline-color: #ff9800;
+    --mdc-outlined-text-field-focus-label-text-color: #ff9800;
+  }
+
+  .products-table-card {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .table-scroll-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  .products-table-card .mat-header-row {
+    position: sticky;
+    top: 0;
+    background-color: $orange;
+    z-index: 2;
+  }
+
+  .products-table-card .mat-header-cell {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .products-table-card .mat-sort-header-arrow {
+    color: #fff;
+  }
+
+  .products-table-card .mat-cell {
+    padding: 8px 16px;
+    white-space: nowrap;
+  }
+
+  .qty-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .qty-btn {
+    --mdc-icon-button-icon-color: $orange;
+  }
+
+  .qty-value {
+    min-width: 24px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .loading-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(1px);
+    background: rgba(255, 255, 255, .6);
+  }
+
+  .products-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    button mat-icon {
+      margin-right: 4px;
+    }
+  }
+
+  .products-paginator {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  
+  .btn-orange.mat-mdc-raised-button {
+    --mdc-filled-button-container-color: #ff9800;
+    --mdc-filled-button-label-text-color: #fff;
+  }
+}
