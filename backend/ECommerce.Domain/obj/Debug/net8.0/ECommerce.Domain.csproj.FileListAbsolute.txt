@@ -1,0 +1,12 @@
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/bin/Debug/net8.0/ECommerce.Domain.deps.json
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/bin/Debug/net8.0/ECommerce.Domain.dll
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/bin/Debug/net8.0/ECommerce.Domain.pdb
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/obj/Debug/net8.0/ECommerce.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/obj/Debug/net8.0/ECommerce.Domain.AssemblyInfoInputs.cache
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/obj/Debug/net8.0/ECommerce.Domain.AssemblyInfo.cs
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/obj/Debug/net8.0/ECommerce.Domain.csproj.CoreCompileInputs.cache
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/obj/Debug/net8.0/ECommerce.Domain.sourcelink.json
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/obj/Debug/net8.0/ECommerce.Domain.dll
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/obj/Debug/net8.0/refint/ECommerce.Domain.dll
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/obj/Debug/net8.0/ECommerce.Domain.pdb
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Domain/obj/Debug/net8.0/ref/ECommerce.Domain.dll
