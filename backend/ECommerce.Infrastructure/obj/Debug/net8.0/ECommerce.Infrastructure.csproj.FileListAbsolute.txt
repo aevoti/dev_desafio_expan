@@ -1,6 +1,16 @@
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/bin/Debug/net8.0/ECommerce.Infrastructure.deps.json
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/bin/Debug/net8.0/ECommerce.Infrastructure.dll
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/bin/Debug/net8.0/ECommerce.Infrastructure.pdb
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/bin/Debug/net8.0/ECommerce.Domain.dll
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/bin/Debug/net8.0/ECommerce.Domain.pdb
 /home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/ECommerce.Infrastructure.csproj.AssemblyReference.cache
 /home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/ECommerce.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 /home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/ECommerce.Infrastructure.AssemblyInfoInputs.cache
 /home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/ECommerce.Infrastructure.AssemblyInfo.cs
 /home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/ECommerce.Infrastructure.csproj.CoreCompileInputs.cache
 /home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/ECommerce.Infrastructure.sourcelink.json
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/ECommerce.Infrastructure.csproj.CopyComplete
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/ECommerce.Infrastructure.dll
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/refint/ECommerce.Infrastructure.dll
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/ECommerce.Infrastructure.pdb
+/home/luidi/Desktop/projetos/dev_desafio_expan/backend/ECommerce.Infrastructure/obj/Debug/net8.0/ref/ECommerce.Infrastructure.dll
