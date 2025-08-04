@@ -25,3 +25,13 @@ app.MapGet("/products", async (ShopDbContext db) =>
     await db.Products.ToListAsync());
 
 app.Run();
+
+builder.Services.AddScoped<IOrderService, OrderService>();
+
+// Retry config
+config.ReceiveEndpoint("order-queue", e =>
+{
+    e.UseMessageRetry(r => r.Interval(3, TimeSpan.FromSeconds(60)));
+    e.Consumer<OrderConsumer>();
+});
+
