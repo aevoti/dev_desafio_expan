@@ -1,7 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using OrderApi.Models;
+  
 using System;
 using System.Threading.Tasks;
+using ECommerce.Domain;          
+using ECommerce.Application; 
+using ECommerce.Infrastructure;  
+
 
 namespace OrderApi.Repositories
 {

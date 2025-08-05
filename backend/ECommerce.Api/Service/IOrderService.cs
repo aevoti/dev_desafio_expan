@@ -1,5 +1,7 @@
-using OrderApi.Models;
+  
 using System.Threading.Tasks;
+using ECommerce.Domain;
+using ECommerce.Application;
 
 namespace OrderApi.Services
 {

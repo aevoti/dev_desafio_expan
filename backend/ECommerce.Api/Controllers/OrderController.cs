@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using OrderApi.Models;
 using OrderApi.Services;
 using System.Threading.Tasks;
+using ECommerce.Domain;          
+using ECommerce.Application; 
+using ECommerce.Infrastructure;  
+
 
 namespace OrderApi.Controllers
 {

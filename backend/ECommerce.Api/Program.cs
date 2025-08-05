@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ShopDbContext>(options =>
-    options.UseSqlite("Data Source=ecommerce.db"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 // Swagger e API explorer
 builder.Services.AddEndpointsApiExplorer();

@@ -1,10 +1,14 @@
 using MassTransit;
 using Microsoft.Extensions.Logging;
-using OrderApi.Models;
+  
 using OrderApi.Messages;
 using OrderApi.Repositories;
 using System;
 using System.Threading.Tasks;
+using ECommerce.Domain;          
+using ECommerce.Application; 
+using ECommerce.Infrastructure;  
+
 
 namespace OrderApi.Services
 {

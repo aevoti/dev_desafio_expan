@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: shopdb
+    environment:
+      POSTGRES_DB: ShopDb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass609
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  ecommerce-api:
+    build:
+      context: .
+      dockerfile: ECommerce.Api/Dockerfile
+    ports:
+      - "5000:80"
+    depends_on:
+      - rabbitmq
+      - postgres
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: Host=shopdb;Database=ShopDb;Username=postgres;Password=pass609
+      RabbitMQ__Host: rabbitmq
+
+  ecommerce-worker:
+    build:
+      context: ./ECommerce.Worker
+    depends_on:
+      - rabbitmq
+      - postgres
+    environment:
+      ConnectionStrings__DefaultConnection: Host=shopdb;Database=ShopDb;Username=postgres;Password=pass609
+      RabbitMQ__Host: rabbitmq
+
+volumes:
+  pgdata:
