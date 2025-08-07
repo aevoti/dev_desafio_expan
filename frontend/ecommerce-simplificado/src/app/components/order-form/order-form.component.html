@@ -1,0 +1,26 @@
+<h2>Resumo do Pedido</h2>
+
+<div *ngIf="alertMessage" class="alert">
+  {{ alertMessage }}
+</div>
+
+<div class="order-items">
+  <div class="order-item" *ngFor="let item of orderItems; let i = index">
+    <span class="item-name">{{ item.product.name }}</span>
+    <span class="item-price">R$ {{ item.product.price }}</span>
+    <input type="number" [(ngModel)]="item.quantity" min="1" />
+    <span class="item-total">= R$ {{ item.product.price * item.quantity }}</span>
+    <button class="remove-btn" (click)="removeItem(i)">Remover</button>
+  </div>
+</div>
+
+<div class="order-summary">
+  <h3>Total: R$ {{ getTotal() }}</h3>
+  <button class="confirm-btn" (click)="confirmOrder()">Confirmar Pedido</button>
+</div>
+
+<ng-template #empty>
+  <p>Nenhum produto selecionado.</p>
+</ng-template>
+
+

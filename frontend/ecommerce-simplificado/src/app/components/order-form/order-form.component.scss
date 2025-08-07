@@ -1,0 +1,136 @@
+.order-wrapper {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .order-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .item-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .item-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  input[type='number'] {
+    width: 60px;
+    padding: 0.3rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .item-total {
+    font-weight: bold;
+  }
+  
+  .remove-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .remove-btn:hover {
+    background-color: #c82333;
+  }
+  
+  .order-footer {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .confirm-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .confirm-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* 📱 Media Query para telas menores */
+  @media (max-width: 600px) {
+    .order-wrapper {
+      padding: 1rem;
+    }
+  
+    .item-info,
+    .item-controls {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    input[type='number'] {
+      width: 100%;
+      max-width: 100px;
+    }
+  
+    .remove-btn {
+      width: 300px;
+      max-width: 300px;
+    }
+  
+    .confirm-btn {
+      font-size: 1rem;
+      padding: 0.8rem;
+    }
+  }
+
+  .alert {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    animation: fadeOut 3s forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+  }
+  
